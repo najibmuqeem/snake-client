@@ -1,12 +1,13 @@
 const net = require("net");
+const { IP, PORT } = require("./constants");
 
 /**
  * Establishes connection with the game server
  */
 const connect = function() {
   const conn = net.createConnection({
-    host: "172.46.0.236",
-    port: 50541
+    host: IP,
+    port: PORT
   });
 
   conn.setEncoding("utf8");
@@ -20,9 +21,9 @@ const connect = function() {
 
     conn.write("Name: NMM");
 
-    setInterval(() => {
-      // conn.write("Move: up");
-    }, 50);
+    // setInterval(() => {
+    //   conn.write("Move: up");
+    // }, 50);
   });
   return conn;
 };
